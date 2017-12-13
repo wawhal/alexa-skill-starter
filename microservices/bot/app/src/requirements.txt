@@ -3,4 +3,3 @@ requests
 gunicorn
 flask-ask
 unidecode
-logging
