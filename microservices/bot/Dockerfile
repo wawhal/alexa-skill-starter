@@ -7,6 +7,7 @@ WORKDIR /usr/src/app
 # and since COPY is cached we don't need to wait
 COPY app/src/requirements.txt /tmp/requirements.txt
 RUN pip install ez_setup
+RUN easy_install -U setuptools
 RUN pip3 install -r /tmp/requirements.txt
 
 COPY app /usr/src/app
