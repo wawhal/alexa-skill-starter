@@ -1,3 +1,4 @@
+from src import app
 from flask_ask import Ask, statement, question, session
 import json
 import requests
