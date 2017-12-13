@@ -42,7 +42,7 @@ def no_intent():
     bye_text = 'I am not sure why you asked me to run then, but okay... bye'
     return statement(bye_text)
 
-@app.route('test', methods=['GET'])
+@app.route('/test', methods=['GET'])
 def test():
     return "Alexa skill is running."
 
