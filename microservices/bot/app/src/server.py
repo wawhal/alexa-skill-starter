@@ -41,3 +41,7 @@ def share_headlines():
 def no_intent():
     bye_text = 'I am not sure why you asked me to run then, but okay... bye'
     return statement(bye_text)
+
+@app.route("test")
+def test():
+	return "Alexa Skill is running."
