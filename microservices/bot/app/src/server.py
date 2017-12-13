@@ -50,8 +50,7 @@ def answer(first, second, third):
 
     return statement(msg)
 
-
-app.route('/test')
+@app.route('/test')
 def test():
 	return "Alexa skill is running."
 
