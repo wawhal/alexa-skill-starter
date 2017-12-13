@@ -4,8 +4,6 @@ from random import randint
 import json
 import requests
 import unidecode
-import logging
-
 
 ask = Ask(app, "/")
 
