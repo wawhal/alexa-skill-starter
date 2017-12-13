@@ -4,7 +4,6 @@ import requests
 import time
 import unidecode
 
-app = Flask(__name__)
 ask = Ask(app, "/reddit_reader")
 
 def get_headlines():
