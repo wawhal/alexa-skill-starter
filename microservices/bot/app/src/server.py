@@ -1,48 +1,57 @@
 from src import app
 from flask_ask import Ask, statement, question, session
+from random import randint
 import json
 import requests
-import time
 import unidecode
+import logging
 
-ask = Ask(app, "/reddit_reader")
 
-def get_headlines():
-    user_pass_dict = {'user': '',
-                      'passwd': '',
-                      'api_type': 'json'}
-    sess = requests.Session()
-    sess.headers.update({'User-Agent': 'I am testing Alexa: Sentdex'})
-    sess.post('https://www.reddit.com/api/login', data = user_pass_dict)
-    time.sleep(1)
-    url = 'https://reddit.com/r/worldnews/.json?limit=10'
-    html = sess.get(url)
-    data = json.loads(html.content.decode('utf-8'))
-    titles = [unidecode.unidecode(listing['data']['title']) for listing in data['data']['children']]
-    titles = '... '.join([i for i in titles])
-    return titles  
+ask = Ask(app, "/")
 
-@app.route('/')
-def homepage():
-    return "hi there, how ya doin?"
+logging.getLogger("flask_ask").setLevel(logging.DEBUG)
+
 
 @ask.launch
-def start_skill():
-    welcome_message = 'Hello there, would you like the news?'
-    return question(welcome_message)
+
+def new_game():
+
+    welcome_msg = render_template('welcome')
+
+    return question(welcome_msg)
+
 
 @ask.intent("YesIntent")
-def share_headlines():
-    headlines = get_headlines()
-    headline_msg = 'The current world news headlines are {}'.format(headlines)
-    return statement(headline_msg)
 
-@ask.intent("NoIntent")
-def no_intent():
-    bye_text = 'I am not sure why you asked me to run then, but okay... bye'
-    return statement(bye_text)
+def next_round():
 
-@app.route('/test', methods=['GET'])
+    numbers = [randint(0, 9) for _ in range(3)]
+
+    round_msg = render_template('round', numbers=numbers)
+
+    session.attributes['numbers'] = numbers[::-1]  # reverse
+
+    return question(round_msg)
+
+
+@ask.intent("AnswerIntent", convert={'first': int, 'second': int, 'third': int})
+
+def answer(first, second, third):
+
+    winning_numbers = session.attributes['numbers']
+
+    if [first, second, third] == winning_numbers:
+
+        msg = render_template('win')
+
+    else:
+
+        msg = render_template('lose')
+
+    return statement(msg)
+
+
+app.route('/test')
 def test():
-    return "Alexa skill is running."
+	return "Alexa skill is running."
 
