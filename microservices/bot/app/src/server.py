@@ -25,7 +25,7 @@ def getYodaQuote():
 	response = requests.request("POST", url, data=json.dumps(body), headers=headers)
 	respObj = response.json()
 	print (respObj)
-	return (respObj[0]["quote"])
+	return (respObj["result"][1])
 
 
 @app.route('/')
