@@ -16,6 +16,7 @@ To link it with your Amazon Echo Device, go to your [Amazon developer console](h
 1. Create a new skill. Call it `Yoda Quote`. Give the invocation name as `qoda quote`. Click next.
 
 2. Add this intent schema
+
 ```
 {
   "intents": [
@@ -42,6 +43,7 @@ NoIntent no
 NoIntent no thanks
 NoIntent nope
 ```
+
 	Click next.
 
 3. For the service endpoint, check the `HTTPS` radio button.
