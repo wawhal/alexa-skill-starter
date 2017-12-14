@@ -17,16 +17,9 @@ def getYodaQuote():
         "X-Hasura-Role": "admin"
 	}
 	body = {
-	    "type": "select",
+	    "type": "run_sql",
 	    "args": {
-	        "table": "yoda_quotes",
-	        "columns": [
-	            "quote"
-	        ],
-	        "order_by": [
-	            "RANDOM()"
-	        ],
-	        "limit": "1"
+	        "sql": "SELECT quote FROM yoda_quotes ORDER BY RANDOM() limit 1;"
 	    }
 	}
 	
@@ -43,12 +36,14 @@ def homepage():
 @ask.launch
 def startSkill():
     quote = getYodaQuote()
-    return question(quote + '... Do you want more?')
+    response = quote + '... Do you want more?'
+    return question(response)
 
 @ask.intent("YesIntent")
 def shareQuote():
     quote = getYodaQuote()
-    return question(quote + '... Do you want more?')
+    response = quote + '... Do you want more?'
+    return question(response)
 
 @ask.intent("NoIntent")
 def noIntent():
