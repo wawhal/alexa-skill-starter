@@ -1,6 +1,6 @@
 # Alexa with Yoda quotes
 
-This is an alexa skill which gives you a Yoda quote when you ask for it. This skill service is deployed in four commands.
+This is an alexa skill which gives you a Yoda quote when you ask for it. This skill service gets deployed in four commands. (Make sure you have [hasura-cli](https://docs.hasura.io/0.15/manual/install-hasura-cli.html))
 
 ```
 $ hasura quickstart /alexa-yoda-bot
@@ -16,7 +16,6 @@ To link it with your Amazon Echo Device, go to your [Amazon developer console](h
 1. Create a new skill. Call it `Yoda Quote`. Give the invocation name as `qoda quote`. Click next.
 
 2. Add this intent schema
-
 ```
 {
   "intents": [
@@ -29,11 +28,8 @@ To link it with your Amazon Echo Device, go to your [Amazon developer console](h
   ]
 }
 ```
-
 Leave custom slot types empty
-
 Add the following sample utterances
-
 ```
 YesIntent yes
 YesIntent sure
@@ -44,7 +40,6 @@ NoIntent no
 NoIntent no thanks
 NoIntent nope
 ```
-
 Click next.
 
 3. For the service endpoint, check the `HTTPS` radio button.
@@ -54,11 +49,9 @@ Put the default URL as `https://bot.<cluster-name>.hasura-app.io/yoda_quotes`. (
 ``
 For quick testing, we have one skill service live at https://bot.dedication76.hasura-app.io/yoda_quotes
 ``
-
 Click next.
 
 4. About SSL certificates, Hasura services have auto generated `LetsEncrypt` Grade A SSL certificates. This means, you have to check the radio button that says `My development endpoint has a certificate from a trusted certificate authority`
-
 Click next.
 
 5. Your skill is live on the ECHO device associated with your account. Test it by saying **Alexa**, `load yoda quote`. And Alexa will give you *Yoda* wisdom :)
