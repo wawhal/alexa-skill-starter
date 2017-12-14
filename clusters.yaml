@@ -1,7 +1,7 @@
 - alias: hasura
   config:
     configmap: controller-conf
-    namespace: hasura
+    namespace: catfish60-hasura
   data: null
-  kubeContext: doubtful36
-  name: doubtful36
+  kubeContext: catfish60
+  name: catfish60
