@@ -43,7 +43,7 @@ NoIntent no thanks
 NoIntent nope
 ```
 
-	Click next.
+   Click next.
 
 3. For the service endpoint, check the `HTTPS` radio button.
 
