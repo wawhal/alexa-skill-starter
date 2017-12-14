@@ -24,9 +24,7 @@ def getYodaQuote():
 	            "quote"
 	        ],
 	        "order_by": [
-	            {
-	                "RANDOM()"
-	            }
+	            "RANDOM()"
 	        ],
 	        "limit": "1"
 	    }
