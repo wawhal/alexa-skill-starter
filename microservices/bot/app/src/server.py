@@ -4,16 +4,26 @@ import json
 import requests
 import time
 import unidecode
+import random
 
 
 ask = Ask(app, "/reddit_reader")
 
 def getYodaQuote():
-	url = http://data.hasura/v1/query
+	url = "http://data.hasura/v1/query"
 	headers = {
 		"Content-type": "application/json"
 	}
-	body = {}
+	body = {
+	    "type": "run_sql",
+	    "args": {
+	        "sql": "SELECT quote FROM yoda_quotes ORDER BY RANDOM() limit 1;"
+	    }
+	}
+	response = requests.request("POST", url, data=json.dumps(body), headers=headers)
+	respObj = response.json()
+	return respObj[0]
+
 
 @app.route('/')
 def homepage():
@@ -21,17 +31,16 @@ def homepage():
 
 @ask.launch
 def startSkill():
-    welcome_message = 'Hello there, would you like the news?'
-    return question(welcome_message)
+    quote = getYodaQuote()
+    return question(quote + '... Do you want more?')
 
 @ask.intent("YesIntent")
 def shareQuote():
     quote = getYodaQuote()
-    headline_msg = 'The current world news headlines are... '+quote
-    return statement(headline_msg)
+    return question(quote + '... Do you want more?')
 
 @ask.intent("NoIntent")
 def noIntent():
-    bye_text = 'I am not sure why you asked me to run then, but okay... bye'
-    return statement(bye_text)
+    byeText = 'Lol... OK... Bye'
+    return statement(byeText)
 
