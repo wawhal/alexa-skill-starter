@@ -36,13 +36,13 @@ def homepage():
 @ask.launch
 def startSkill():
     quote = getYodaQuote()
-    response = quote + '... Do you want more?'
+    response = '{}... Do you want more?'.format(quote)
     return question(response)
 
 @ask.intent("YesIntent")
 def shareQuote():
     quote = getYodaQuote()
-    response = quote + '... Do you want more?'
+    response = '{}... Do you want more?'.format(quote)
     return question(response)
 
 @ask.intent("NoIntent")
