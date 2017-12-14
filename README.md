@@ -28,8 +28,8 @@ To link it with your Amazon Echo Device, go to your [Amazon developer console](h
   ]
 }
 ```
-Leave custom slot types empty
-Add the following sample utterances
+	Leave custom slot types empty
+	Add the following sample utterances
 ```
 YesIntent yes
 YesIntent sure
@@ -44,9 +44,11 @@ Click next.
 
 3. For the service endpoint, check the `HTTPS` radio button.
 
-Put the default URL as `https://bot.<cluster-name>.hasura-app.io/yoda_quotes`. (Run `$ hasura cluster status` from root directory to know your cluster name). 
-**Note**: For quick testing, we have one skill service live at https://bot.dedication76.hasura-app.io/yoda_quotes
-Click next.
+	Put the default URL as `https://bot.<cluster-name>.hasura-app.io/yoda_quotes`. (Run `$ hasura cluster status` from root directory to know your cluster name).
+
+	**Note**: For quick testing, we have one skill service live at https://bot.dedication76.hasura-app.io/yoda_quotes. (This test service will work only if you have followed 1 and 2)
+
+	Click next.
 
 4. About SSL certificates, Hasura services have auto generated `LetsEncrypt` Grade A SSL certificates. This means, you have to check the radio button that says `My development endpoint has a certificate from a trusted certificate authority`
 Click next.
