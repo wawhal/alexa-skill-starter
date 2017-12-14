@@ -17,12 +17,6 @@ def getYodaQuote():
         "X-Hasura-Role": "admin"
 	}
 	body = {
-	    "type": "run_sql",
-	    "args": {
-	        "sql": "SELECT quote FROM yoda_quotes ORDER BY RANDOM() limit 1;"
-	    }
-	}
-	{
 	    "type": "select",
 	    "args": {
 	        "table": "yoda_quotes",
@@ -37,6 +31,7 @@ def getYodaQuote():
 	        "limit": "1"
 	    }
 	}
+	
 	response = requests.request("POST", url, data=json.dumps(body), headers=headers)
 	respObj = response.json()
 	print (respObj)
