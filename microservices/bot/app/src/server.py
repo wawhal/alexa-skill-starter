@@ -26,7 +26,7 @@ def getYodaQuote():
 	response = requests.request("POST", url, data=json.dumps(body), headers=headers)
 	respObj = response.json()
 	print (respObj)
-	return (respObj["result"][1])
+	return (respObj["result"][1][0])
 
 
 @app.route('/')
@@ -36,13 +36,13 @@ def homepage():
 @ask.launch
 def startSkill():
     quote = getYodaQuote()
-    response = '{}... Do you want more?'.format(quote)
+    response = quote + '... Do you want more?'
     return question(response)
 
 @ask.intent("YesIntent")
 def shareQuote():
     quote = getYodaQuote()
-    response = '{}... Do you want more?'.format(quote)
+    response = quote + '... Do you want more?'
     return question(response)
 
 @ask.intent("NoIntent")
