@@ -28,8 +28,10 @@ To link it with your Amazon Echo Device, go to your [Amazon developer console](h
   ]
 }
 ```
+
 	Leave custom slot types empty
 	Add the following sample utterances
+
 ```
 YesIntent yes
 YesIntent sure
@@ -51,7 +53,8 @@ NoIntent nope
 	Click next.
 
 4. About SSL certificates, Hasura services have auto generated `LetsEncrypt` Grade A SSL certificates. This means, you have to check the radio button that says `My development endpoint has a certificate from a trusted certificate authority`
-Click next.
+
+	Click next.
 
 5. Your skill is live on the ECHO device associated with your account. Test it by saying **Alexa**, `load yoda quote`. And Alexa will give you *Yoda* wisdom :)
 
