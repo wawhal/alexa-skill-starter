@@ -7,7 +7,7 @@ import unidecode
 import random
 
 
-ask = Ask(app, "/reddit_reader")
+ask = Ask(app, "/yoda_quotes")
 
 def getYodaQuote():
 	url = "http://data.hasura/v1/query"
