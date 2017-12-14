@@ -52,7 +52,7 @@ Click next.
 Put the default URL as `https://bot.<cluster-name>.hasura-app.io/yoda_quotes`. (Run `$ hasura cluster status` from root directory to know your cluster name). 
 
 ``
-For quick testing, we have one skill service live at https://bot.catfish60.hasura-app.io/yoda-quotes
+For quick testing, we have one skill service live at https://bot.dedication76.hasura-app.io/yoda_quotes
 ``
 
 Click next.

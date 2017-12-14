@@ -5,3 +5,10 @@
   data: null
   kubeContext: dedication76
   name: dedication76
+- alias: test
+  config:
+    configmap: controller-conf
+    namespace: hasura
+  data: null
+  kubeContext: doubtful36
+  name: doubtful36
