@@ -12,7 +12,9 @@ ask = Ask(app, "/reddit_reader")
 def getYodaQuote():
 	url = "http://data.hasura/v1/query"
 	headers = {
-		"Content-type": "application/json"
+		"Content-Type": "application/json",
+        "X-Hasura-User-Id": "1",
+        "X-Hasura-Role": "admin"
 	}
 	body = {
 	    "type": "run_sql",
