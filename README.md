@@ -1,55 +1,65 @@
-# base
+# Alexa with Yoda quotes
 
-A blank template to be used as a starting point to build projects on Hasura. A "project" is a "gittable" directory in the file system, which captures all the information regarding clusters, services and migrations. It can also be used to keep source code for custom services that you write.
-
-## Files and Directories
-
-The project (a.k.a. project directory) has a particular directory structure and it has to be maintained strictly, else `hasura` cli would not work as expected. A representative project is shown below:
+This is an alexa skill which gives you a Yoda quote when you ask for it. This skill service is deployed in four commands.
 
 ```
-.
-├── hasura.yaml
-├── clusters.yaml
-├── conf
-│   ├── authorized-keys.yaml
-│   ├── auth.yaml
-│   ├── ci.yaml
-│   ├── domains.yaml
-│   ├── filestore.yaml
-│   ├── gateway.yaml
-│   ├── http-directives.conf
-│   ├── notify.yaml
-│   ├── postgres.yaml
-│   ├── routes.yaml
-│   └── session-store.yaml
-├── migrations
-│   ├── 1504788327_create_table_userprofile.down.yaml
-│   ├── 1504788327_create_table_userprofile.down.sql
-│   ├── 1504788327_create_table_userprofile.up.yaml
-│   └── 1504788327_create_table_userprofile.up.sql
-└── microservices 
-    ├── adminer
-    │   └── k8s.yaml
-    └── flask
-        ├── src/
-        ├── k8s.yaml
-        └── Dockerfile
+$ hasura quickstart /alexa-yoda-bot
+$ cd alexa-yoda-bot
+$ git add . && git commit -m "Initial Commit"
+$ git push hasura master
 ```
 
-### `hasura.yaml`
+This is a good place to start if you want to start developing Alexa Skills.
 
-This file contains some metadata about the project, namely a name, description and some keywords. Also contains `platformVersion` which says which Hasura platform version is compatible with this project.
+To link it with your Amazon Echo Device, go to your [Amazon developer console](https://developer.amazon.com/edw/home.html#/skills).
 
-### `clusters.yaml`
+1. Create a new skill. Call it `Yoda Quote`. Give the invocation name as `qoda quote`. Click next.
 
-Info about the clusters added to this project can be found in this file. Each cluster is defined by it's name allotted by Hasura. While adding the cluster to the project you are prompted to give an alias, which is just hasura by default. The `kubeContext` mentions the name of kubernetes context used to access the cluster, which is also managed by hasura. The `config` key denotes the location of cluster's metadata on the cluster itself. This information is parsed and cluster's metadata is appended while conf is rendered. `data` key is for holding custom variables that you can define.
+2. Add this intent schema
 
-```yaml
-- name: h34-ambitious93-stg
-  alias: hasura
-  kubeContext: h34-ambitious93-stg
-  config:
-    configmap: controller-conf
-    namespace: hasura
-  data: null  
 ```
+{
+  "intents": [
+    {
+      "intent": "YesIntent"
+    },
+    {
+      "intent": "NoIntent"
+    }
+  ]
+}
+```
+
+Leave custom slot types empty
+
+Add the following sample utterances
+
+```
+YesIntent yes
+YesIntent sure
+YesIntent yeah
+YesIntent ok
+
+NoIntent no
+NoIntent no thanks
+NoIntent nope
+```
+
+Click next.
+
+3. For the service endpoint, check the `HTTPS` radio button.
+
+Put the default URL as `https://bot.<cluster-name>.hasura-app.io/yoda_quotes`. (Run `$ hasura cluster status` from root directory to know your cluster name). 
+
+``
+For quick testing, we have one skill service live at https://bot.catfish60.hasura-app.io/yoda-quotes
+``
+
+Click next.
+
+4. About SSL certificates, Hasura services have auto generated `LetsEncrypt` Grade A SSL certificates. This means, you have to check the radio button that says `My development endpoint has a certificate from a trusted certificate authority`
+
+Click next.
+
+5. Your skill is live on the ECHO device associated with your account. Test it by saying **Alexa**, `load yoda quote`. And Alexa will give you *Yoda* wisdom :)
+
