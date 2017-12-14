@@ -22,6 +22,21 @@ def getYodaQuote():
 	        "sql": "SELECT quote FROM yoda_quotes ORDER BY RANDOM() limit 1;"
 	    }
 	}
+	{
+	    "type": "select",
+	    "args": {
+	        "table": "yoda_quotes",
+	        "columns": [
+	            "quote"
+	        ],
+	        "order_by": [
+	            {
+	                "RANDOM()"
+	            }
+	        ],
+	        "limit": "1"
+	    }
+	}
 	response = requests.request("POST", url, data=json.dumps(body), headers=headers)
 	respObj = response.json()
 	print (respObj)
