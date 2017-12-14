@@ -13,7 +13,7 @@ This is a good place to start if you want to start developing Alexa Skills.
 
 To link it with your Amazon Echo Device, go to your [Amazon developer console](https://developer.amazon.com/edw/home.html#/skills).
 
-1. Create a new skill. Call it `Yoda Quote`. Give the invocation name as `qoda quote`. Click next.
+1. Create a new skill. Call it `Yoda Quote`. Give the invocation name as `yoda quote`. Click next.
 
 2. Add this intent schema
 
