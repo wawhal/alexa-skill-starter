@@ -30,8 +30,7 @@ To link it with your Amazon Echo Device, go to your [Amazon developer console](h
 }
 ```
 
-	Leave custom slot types empty
-	Add the following sample utterances
+Leave custom slot types empty. Add the following sample utterances
 
 ```
 YesIntent yes
