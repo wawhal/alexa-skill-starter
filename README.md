@@ -91,4 +91,4 @@ You might want to go through the Flask-ask docs (a very quick read).
 
 ## Support
 
-If you happen to getstuck at any point, feel free to mail me at rishichandra.wawhal@gmail.com. Also, if you find an error or a bug, please raise an issue [here](https://github.com/wawhal/alexa-skill-starter).
+If you happen to getstuck at any point, feel free to mail me at tanmaig@gmail.com. Also, if you find an error or a bug, please raise an issue [here](https://github.com/wawhal/alexa-skill-starter).
