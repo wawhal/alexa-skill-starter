@@ -1,5 +1,5 @@
-description: Blank template for a Hasura project
-keywords: base, getting-started
+description: A ready-to-deploy Alexa skill (with SSL Certificates) made using Python Flask-Ask. It gives you a Yoda quote on invocation.
+keywords: alexa, amazon, echo, yoda, chatbot, skill, alexa-skill
 media: {}
-name: base
+name: alexa-yoda-quote 
 platformVersion: v0.15.3
