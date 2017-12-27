@@ -1,5 +1,8 @@
-description: A ready-to-deploy Alexa skill (with SSL Certificates) made using Python Flask-Ask. It gives you a Yoda quote on invocation.
+description: A ready-to-deploy Alexa skill (with SSL Certificates) made using Python
+  Flask-Ask. It gives you a Yoda quote on invocation.
 keywords: alexa, amazon, echo, yoda, chatbot, skill, alexa-skill
-media: {}
-name: alexa-yoda-quote 
+media:
+  videos:
+  - https://www.youtube.com/embed/FaSY1kr7K4I
+name: alexa-yoda-skill
 platformVersion: v0.15.3

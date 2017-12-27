@@ -33,7 +33,7 @@ $ git add . && git commit -m "Initial Commit"
 $ git push hasura master
 ```
 
-### How to add the skill to my Amazon account?
+### How to add the skill to your Amazon account?
 
 To link it with your Amazon Echo Device, go to your [Amazon developer console](https://developer.amazon.com/edw/home.html#/skills).
 
