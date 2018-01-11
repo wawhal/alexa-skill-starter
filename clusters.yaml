@@ -1,14 +1,6 @@
-- alias: hasura
-  config:
-    configmap: controller-conf
-    namespace: hasura
-  data: null
-  kubeContext: dedication76
-  name: dedication76
-- alias: test
-  config:
-    configmap: controller-conf
-    namespace: hasura
-  data: null
-  kubeContext: doubtful36
-  name: doubtful36
+# Stores the information about the clusters added to this project
+#
+# - This file gets populated with the cluster information when you run
+#   `hasura cluster add`
+# - When your project is published on hasura hub, this file will not
+#   have any information about your clusters
