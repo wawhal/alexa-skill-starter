@@ -27,8 +27,8 @@ This skill gets deployed instantly. Also, Hasura automatically generates SSL cer
 (Make sure you have [hasura-cli](https://docs.hasura.io/0.15/manual/install-hasura-cli.html))
 
 ```
-$ hasura quickstart rishi/alexa-yoda-bot
-$ cd alexa-yoda-bot
+$ hasura quickstart rishi/alexa-yoda-skill
+$ cd alexa-yoda-skill
 $ git add . && git commit -m "Initial Commit"
 $ git push hasura master
 ```
